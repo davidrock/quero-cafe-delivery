@@ -1,6 +1,6 @@
 import { Icon, IntroContainer, IntroTitle, ItemLine, ItensContainer } from './styles';
+import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
 import coffeeImage from '../assets/coffee.png';
-import { ArchiveBox, Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
 
 export function Home(){
 	return (
