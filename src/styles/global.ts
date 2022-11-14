@@ -28,6 +28,17 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 130%;
   }
   h2 {
+    font-family: 'Baloo 2', cursive;
+    color: ${(props)=> props.theme['base-subtitle']};
+    font-weight: 800;
+    font-size: 32px;
+  }
+  h3 {
+    color: ${(props)=> props.theme['base-subtitle']};
+    font-weight: 700;
+    font-size: 20px;
+  }
+  h4 {
     color: ${(props)=> props.theme['base-subtitle']};
     font-weight: 400;
     font-size: 20px;
