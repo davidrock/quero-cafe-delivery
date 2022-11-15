@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
-import { Product } from '../../../../Products';
+import { Product } from '../../../../assets/Products';
 
 import {
 	Button,

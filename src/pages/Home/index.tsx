@@ -10,7 +10,7 @@ import {
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
 import coffeeImage from '../../assets/coffee.png';
 import { CoffeeCard } from './components/CoffeeCard';
-import { products } from '../../Products';
+import { products } from '../../assets/Products';
 
 export function Home() {
 	return (
