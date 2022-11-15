@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const CoffeeTagsContainer = styled.div`
+	display: flex;
+	gap: 0.25rem;
+`;
+
 export const CoffeTags = styled.span`
 	display: flex;
 	padding-top: 0.25rem;

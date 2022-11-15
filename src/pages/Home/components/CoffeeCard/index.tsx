@@ -1,4 +1,6 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
+import { Product } from '../../../../Products';
+
 import {
 	Button,
 	CardActions,
@@ -6,22 +8,28 @@ import {
 	CardPrice,
 	CardPriceContainer,
 	CoffeeCardContainer,
+	CoffeeTagsContainer,
 	CoffeTags,
 	ItemQuantity,
 } from './styles';
-import expresso from '../.././../../assets/images/expresso.png';
 
 
-export function CoffeeCard () {
+interface CoffeeCardProps extends Product {}
+
+export function CoffeeCard ({imageUrl, name, description, price, tags}: CoffeeCardProps) {
 	return (
 		<CoffeeCardContainer>
-			<img src={expresso} alt='Image café expresso tradicional' width="120" height="120" />
-			<CoffeTags>TRADICIONAL</CoffeTags>
-			<h3>Expresso Tradicional</h3>
-			<p>O tradicional café feito com água quente e grãos moídos</p>
+			<img src={imageUrl} alt='Image café expresso tradicional' width="120" height="120" />
+			<CoffeeTagsContainer>
+				{tags.map(t => (
+					<CoffeTags key={t}>{t}</CoffeTags>
+				))}
+			</CoffeeTagsContainer>
+			<h3>{name}</h3>
+			<p>{description}</p>
 			<CardDetails>
 				<CardPriceContainer>
-								R$<CardPrice>9,90</CardPrice>
+								R$<CardPrice>{price.toFixed(2)}</CardPrice>
 				</CardPriceContainer>
 				<CardActions>
 					<ItemQuantity>

@@ -66,7 +66,8 @@ export const CoffeeListContainer = styled.div`
 `;
 
 export const CoffeeList = styled.div`
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto auto auto;
 	gap: 2rem;
 `;
 
