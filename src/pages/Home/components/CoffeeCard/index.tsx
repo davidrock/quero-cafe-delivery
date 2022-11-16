@@ -13,15 +13,25 @@ import {
 	ItemQuantity,
 } from './styles';
 
-
 interface CoffeeCardProps extends Product {}
 
-export function CoffeeCard ({imageUrl, name, description, price, tags}: CoffeeCardProps) {
+export function CoffeeCard({
+	imageUrl,
+	name,
+	description,
+	price,
+	tags,
+}: CoffeeCardProps) {
 	return (
 		<CoffeeCardContainer>
-			<img src={imageUrl} alt='Image café expresso tradicional' width="120" height="120" />
+			<img
+				src={imageUrl}
+				alt="Image café expresso tradicional"
+				width="120"
+				height="120"
+			/>
 			<CoffeeTagsContainer>
-				{tags.map(t => (
+				{tags?.map((t) => (
 					<CoffeTags key={t}>{t}</CoffeTags>
 				))}
 			</CoffeeTagsContainer>
@@ -29,13 +39,17 @@ export function CoffeeCard ({imageUrl, name, description, price, tags}: CoffeeCa
 			<p>{description}</p>
 			<CardDetails>
 				<CardPriceContainer>
-								R$<CardPrice>{price.toFixed(2)}</CardPrice>
+					R$<CardPrice>{price?.toFixed(2)}</CardPrice>
 				</CardPriceContainer>
 				<CardActions>
 					<ItemQuantity>
-						<button><Minus /></button>
-									1
-						<button><Plus /></button>
+						<button>
+							<Minus />
+						</button>
+						1
+						<button>
+							<Plus />
+						</button>
 					</ItemQuantity>
 					<Button>
 						<ShoppingCart size={22} weight="fill" />

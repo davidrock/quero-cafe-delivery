@@ -1,12 +1,12 @@
 export interface Product {
-	name: string;
-	imageUrl: string;
-	description: string;
-	tags: string[];
-	price: number;
+	name?: string;
+	imageUrl?: string;
+	description?: string;
+	tags?: string[];
+	price?: number;
 }
 
-export const products: Product[] = [
+export const PRODUCTS: Product[] = [
 	{
 		name: 'Expresso Tradicional',
 		imageUrl: 'products/expresso.png',
@@ -52,24 +52,21 @@ export const products: Product[] = [
 	{
 		name: 'Capuccino',
 		imageUrl: 'products/capuccino.png',
-		description:
-			'Uma dose de café expresso com o dobro de leite e espuma cremosa',
+		description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
 	},
 	{
 		name: 'Macchiato',
 		imageUrl: 'products/macchiato.png',
-		description:
-			'Bebida com canela feita de doses iguais de café, leite e espuma',
+		description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
 	},
 	{
 		name: 'Mocaccino',
 		imageUrl: 'products/mocaccino.png',
-		description:
-			'Café expresso misturado com um pouco de leite quente e espuma',
+		description: 'Café expresso misturado com um pouco de leite quente e espuma',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
 	},
@@ -83,8 +80,7 @@ export const products: Product[] = [
 	{
 		name: 'Cubano',
 		imageUrl: 'products/cubano.png',
-		description:
-			'Drink gelado de café expresso com rum, creme de leite e hortelã',
+		description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
 	},
