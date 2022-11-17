@@ -14,7 +14,13 @@ import {
 	ItemQuantity,
 } from './styles';
 
-interface CoffeeCardProps extends Product {}
+interface CoffeeCardProps {
+	name: string;
+	imageUrl: string;
+	description: string;
+	tags: string[];
+	price: number;
+}
 
 export function CoffeeCard({ imageUrl, name, description, price, tags }: CoffeeCardProps) {
 	const { addShoppingCartProduct } = useContext(ShoppingCartContext);
