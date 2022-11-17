@@ -10,7 +10,6 @@ export function Header() {
 		return accumulator + product?.quantity;
 	}, 0);
 
-	console.log(shoppingCartProducts);
 	return (
 		<HeaderContainer>
 			<img src={logo} alt="" />

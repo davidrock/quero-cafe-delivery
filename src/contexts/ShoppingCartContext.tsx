@@ -42,8 +42,10 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
 	}
 
 	function fillShoppingCart() {
-		const products: ShoppingCart[] = JSON.parse(localStorage.getItem('quero-cafe:shoppingCart'));
-		setShoppingCartProducts(products ?? []);
+		const products = localStorage.getItem('quero-cafe:shoppingCart');
+		if (products) {
+			setShoppingCartProducts(JSON.parse(products));
+		}
 	}
 
 	return (
