@@ -4,6 +4,7 @@ import { produce } from 'immer';
 
 export interface ShoppingCart {
 	name: string;
+	imageUrl: string;
 	price: number;
 	quantity: number;
 }
@@ -13,6 +14,7 @@ interface ShoppingCartContextType {
 	shoppingCartProducts: ShoppingCart[];
 	addShoppingCartProduct: (product: Product) => void;
 	fillCatalogProducts: (product: Product[]) => void;
+	fillShoppingCart: () => void;
 }
 
 interface ShoppingCartContextProps {
@@ -27,17 +29,21 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
 
 	function addShoppingCartProduct(product: Product) {
 		if (product) {
-			// setShoppingCartProducts([...shoppingCartProducts, { name: product.name, price: product.price }]);
-			setShoppingCartProducts(
-				produce(shoppingCartProducts, (draft) => {
-					draft?.push({ name: product.name, price: product.price, quantity: product.quantity });
-				}),
-			);
+			const shoppingCart = produce(shoppingCartProducts, (draft) => {
+				draft?.push(product);
+			});
+			setShoppingCartProducts(shoppingCart);
+			localStorage.setItem('quero-cafe:shoppingCart', JSON.stringify(shoppingCart));
 		}
 	}
 
 	function fillCatalogProducts(products: Product[]) {
 		setCatalogProducts(products);
+	}
+
+	function fillShoppingCart() {
+		const products: ShoppingCart[] = JSON.parse(localStorage.getItem('quero-cafe:shoppingCart'));
+		setShoppingCartProducts(products ?? []);
 	}
 
 	return (
@@ -47,6 +53,7 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
 				fillCatalogProducts,
 				shoppingCartProducts,
 				addShoppingCartProduct,
+				fillShoppingCart,
 			}}
 		>
 			{children}

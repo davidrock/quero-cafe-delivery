@@ -1,20 +1,17 @@
 import { CoffeeList, CoffeeListContainer, Icon, IntroContainer, IntroTitle, ItemLine, ItensContainer } from './styles';
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react';
-import coffeeImage from '../../assets/coffee.png';
 import { CoffeeCard } from './components/CoffeeCard';
 import { useContext, useEffect } from 'react';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
-import { Product, PRODUCTS } from '../../assets/Products';
+import { PRODUCTS } from '../../assets/Products';
+import coffeeImage from '../../assets/coffee.png';
 
 export function Home() {
-	const { catalogProducts, fillCatalogProducts } = useContext(ShoppingCartContext);
-
-	function handleAddProduct(product: Product) {
-		console.log(product);
-	}
+	const { catalogProducts, fillCatalogProducts, fillShoppingCart } = useContext(ShoppingCartContext);
 
 	useEffect(() => {
 		fillCatalogProducts(PRODUCTS);
+		fillShoppingCart();
 	}, []);
 
 	return (
