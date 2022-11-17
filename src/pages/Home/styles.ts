@@ -15,6 +15,10 @@ export const IntroContainer = styled.div`
 	background-image: url('bg-intro.png');
 `;
 
+export const Logo = styled.a`
+	cursor: pointer;
+`;
+
 export const IntroTitle = styled.div`
 	display: flex;
 	flex-direction: column;
