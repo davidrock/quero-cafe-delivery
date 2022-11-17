@@ -5,6 +5,7 @@ import { produce } from 'immer';
 export interface ShoppingCart {
 	name: string;
 	price: number;
+	quantity: number;
 }
 
 interface ShoppingCartContextType {
@@ -26,10 +27,12 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
 
 	function addShoppingCartProduct(product: Product) {
 		if (product) {
-			setCatalogProducts([...catalogProducts, product]);
-			// produce(products, (draft) => {
-			// 	draft?.push(product);
-			// });
+			// setShoppingCartProducts([...shoppingCartProducts, { name: product.name, price: product.price }]);
+			setShoppingCartProducts(
+				produce(shoppingCartProducts, (draft) => {
+					draft?.push({ name: product.name, price: product.price, quantity: product.quantity });
+				}),
+			);
 		}
 	}
 

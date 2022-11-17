@@ -1,9 +1,10 @@
 export interface Product {
-	name?: string;
-	imageUrl?: string;
-	description?: string;
-	tags?: string[];
-	price?: number;
+	name: string;
+	imageUrl: string;
+	description: string;
+	tags: string[];
+	price: number;
+	quantity: number;
 }
 
 export const PRODUCTS: Product[] = [
@@ -13,6 +14,7 @@ export const PRODUCTS: Product[] = [
 		description: 'O tradicional café feito com água quente e grãos moídos',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Expresso Americano',
@@ -20,6 +22,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Expresso diluído, menos intenso que o tradicional',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Expresso Cremoso',
@@ -27,6 +30,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Café expresso tradicional com espuma cremosa',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Expresso Gelado',
@@ -34,6 +38,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Bebida preparada com café expresso e cubos de gelo',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Café com Leite',
@@ -41,6 +46,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Meio a meio de expresso tradicional com leite vaporizado',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Latte',
@@ -48,6 +54,7 @@ export const PRODUCTS: Product[] = [
 		description: '',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Capuccino',
@@ -55,6 +62,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Macchiato',
@@ -62,6 +70,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Mocaccino',
@@ -69,6 +78,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Café expresso misturado com um pouco de leite quente e espuma',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Chocolate Quente',
@@ -76,6 +86,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Café expresso com calda de chocolate, pouco leite e espuma',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Cubano',
@@ -83,6 +94,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Havaiano',
@@ -90,6 +102,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Bebida adocicada preparada com café e leite de coco',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Árabe',
@@ -97,6 +110,7 @@ export const PRODUCTS: Product[] = [
 		description: 'Bebida preparada com grãos de café árabe e especiarias',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 	{
 		name: 'Irlandês',
@@ -104,5 +118,6 @@ export const PRODUCTS: Product[] = [
 		description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
 		tags: ['TRADICIONAL'],
 		price: 9.9,
+		quantity: 1,
 	},
 ];

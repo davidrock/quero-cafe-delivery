@@ -1,6 +1,7 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
+import { useContext, useState } from 'react';
 import { Product } from '../../../../assets/Products';
-
+import { ShoppingCartContext } from '../../../../contexts/ShoppingCartContext';
 import {
 	Button,
 	CardActions,
@@ -15,21 +16,25 @@ import {
 
 interface CoffeeCardProps extends Product {}
 
-export function CoffeeCard({
-	imageUrl,
-	name,
-	description,
-	price,
-	tags,
-}: CoffeeCardProps) {
+export function CoffeeCard({ imageUrl, name, description, price, tags }: CoffeeCardProps) {
+	const { addShoppingCartProduct } = useContext(ShoppingCartContext);
+	const [quantity, setQuantity] = useState(1);
+
+	function handleAddCounter() {
+		setQuantity((state) => state + 1);
+	}
+
+	function handleDeductCounter() {
+		setQuantity((state) => (state > 1 ? state - 1 : state));
+	}
+
+	function handleAddProductToShoppingCart() {
+		addShoppingCartProduct({ imageUrl, name, description, price, tags, quantity });
+	}
+
 	return (
 		<CoffeeCardContainer>
-			<img
-				src={imageUrl}
-				alt="Image café expresso tradicional"
-				width="120"
-				height="120"
-			/>
+			<img src={imageUrl} alt="" width="120" height="120" />
 			<CoffeeTagsContainer>
 				{tags?.map((t) => (
 					<CoffeTags key={t}>{t}</CoffeTags>
@@ -43,15 +48,15 @@ export function CoffeeCard({
 				</CardPriceContainer>
 				<CardActions>
 					<ItemQuantity>
-						<button>
+						<button onClick={() => handleDeductCounter()}>
 							<Minus />
 						</button>
-						1
-						<button>
+						{quantity}
+						<button onClick={() => handleAddCounter()}>
 							<Plus />
 						</button>
 					</ItemQuantity>
-					<Button>
+					<Button onClick={() => handleAddProductToShoppingCart()}>
 						<ShoppingCart size={22} weight="fill" />
 					</Button>
 				</CardActions>
