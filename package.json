@@ -11,7 +11,11 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.4.1",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@types/styled-components": "^5.1.26",
+    "framer-motion": "^6.5.1",
     "immer": "^9.0.16",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
