@@ -22,6 +22,11 @@ export const CardHeader = styled.div`
 	flex-direction: row;
 `;
 
+export const CardBody = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
+
 export const CardTitle = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -47,9 +52,10 @@ export const FormAddressCard = styled.div`
 `;
 export const FormPaymentMethodCard = styled.div`
 	display: flex;
-	background-color: ${(props) => props.theme['base-card']};
+	padding: 2.5rem;
 	height: 100%;
 	width: 100%;
+	background-color: ${(props) => props.theme['base-card']};
 `;
 
 export const ShoppingCartContainer = styled.div`

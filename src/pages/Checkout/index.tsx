@@ -1,9 +1,10 @@
-import { MapPinLine } from 'phosphor-react';
+import { CurrencyDollar, MapPinLine } from 'phosphor-react';
 import { Flex, Box } from '@chakra-ui/react';
 import { InputText } from '../../components/Form/InputText';
 import { defaultTheme } from '../../styles/themes/default';
 import { ProductItem } from './components/ProductItem';
 import {
+	CardBody,
 	CardHeader,
 	CardTitle,
 	FormAddressCard,
@@ -14,6 +15,7 @@ import {
 	ShoppingCartCard,
 	ShoppingCartContainer,
 } from './styles';
+import { RadioButton } from '../../components/Form/RadioButton';
 
 export function Checkout() {
 	return (
@@ -66,12 +68,23 @@ export function Checkout() {
 						</Flex>
 					</FormBody>
 				</FormAddressCard>
-				<FormPaymentMethodCard>Pagamento</FormPaymentMethodCard>
+				<FormPaymentMethodCard>
+					<CardHeader>
+						<CurrencyDollar weight="regular" color={defaultTheme['purple']} size="22" />
+						<CardTitle>
+							<span>Pagamento</span>
+							<span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
+						</CardTitle>
+					</CardHeader>
+					<CardBody>
+						<RadioButton></RadioButton>
+					</CardBody>
+				</FormPaymentMethodCard>
 			</FormContainer>
 			<ShoppingCartContainer>
 				<h3>Cafés selecionados</h3>
 				<ShoppingCartCard>
-					<ProductItem></ProductItem>
+					<ProductItem imageUrl="" name="" quantity={2} price={19}></ProductItem>
 				</ShoppingCartCard>
 			</ShoppingCartContainer>
 		</PageContainer>
