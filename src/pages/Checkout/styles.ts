@@ -83,11 +83,6 @@ export const TotalContainer = styled.div`
 	gap: 1.3rem;
 `;
 
-export const TotalItemLine = styled.div`
-	display: flex;
-	justify-content: space-between;
-`;
-
 export const TotalLine = styled.div`
 	display: flex;
 	font-weight: bolder;

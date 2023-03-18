@@ -16,7 +16,6 @@ import {
 	ShoppingCartCard,
 	ShoppingCartContainer,
 	TotalContainer,
-	TotalItemLine,
 	TotalLine,
 } from './styles';
 import { PRODUCTS } from '../../assets/Products';
@@ -106,14 +105,14 @@ export function Checkout() {
 					<ProductItem imageUrl={PRODUCTS[1].imageUrl} name="" quantity={2} price={19}></ProductItem>
 					<ProductItem imageUrl={PRODUCTS[1].imageUrl} name="" quantity={2} price={19}></ProductItem>
 					<TotalContainer>
-						<TotalItemLine>
+						<Flex justify="space-between">
 							<span>Total de itens</span>
 							<span>R$ 29,70</span>
-						</TotalItemLine>
-						<TotalItemLine>
+						</Flex>
+						<Flex justify="space-between">
 							<span>Entrega</span>
 							<span>R$ 3,50</span>
-						</TotalItemLine>
+						</Flex>
 						<TotalLine>
 							<span>Total</span>
 							<span>R$ 33,20</span>
