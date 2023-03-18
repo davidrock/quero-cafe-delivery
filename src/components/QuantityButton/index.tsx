@@ -2,7 +2,11 @@ import { Minus, Plus } from 'phosphor-react';
 import { useState } from 'react';
 import { ItemQuantity } from './styles';
 
-export function QuantityButton() {
+export interface QuantityButtonProps {
+	size?: 'small' | 'large';
+}
+
+export function QuantityButton({ size }: QuantityButtonProps) {
 	const [quantity, setQuantity] = useState(1);
 
 	function handleAddCounter() {
@@ -14,7 +18,7 @@ export function QuantityButton() {
 	}
 
 	return (
-		<ItemQuantity>
+		<ItemQuantity size={size}>
 			<button onClick={() => handleDeductCounter()}>
 				<Minus />
 			</button>

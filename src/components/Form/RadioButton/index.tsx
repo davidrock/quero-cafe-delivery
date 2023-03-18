@@ -1,7 +1,9 @@
 import { useRadio, UseRadioProps, Box } from '@chakra-ui/react';
 import { ReactNode } from 'react';
+import { defaultTheme } from '../../../styles/themes/default';
 
 interface RadioButtonProps extends UseRadioProps {
+	icon: string;
 	children?: ReactNode;
 }
 
@@ -17,12 +19,17 @@ export function RadioButton(props: RadioButtonProps) {
 			<Box
 				{...checkbox}
 				cursor="pointer"
-				borderWidth="1px"
-				borderRadius="md"
-				boxShadow="md"
+				rounded={6}
+				bg={defaultTheme['base-button']}
+				color={defaultTheme['base-text']}
+				_hover={{
+					
+				}}
 				_checked={{
-					bg: 'blue',
-					color: 'white',
+					border: '1px',
+					borderColor: defaultTheme['purple'],
+					bg: defaultTheme['purple-light'],
+					color: defaultTheme['base-text'],
 				}}
 				_focus={{
 					boxShadow: 'outline',

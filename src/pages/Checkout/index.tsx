@@ -1,4 +1,4 @@
-import { CurrencyDollar, MapPinLine } from 'phosphor-react';
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from 'phosphor-react';
 import { Flex, Box } from '@chakra-ui/react';
 import { InputText } from '../../components/Form/InputText';
 import { defaultTheme } from '../../styles/themes/default';
@@ -7,6 +7,7 @@ import {
 	CardBody,
 	CardHeader,
 	CardTitle,
+	ConfirmButton,
 	FormAddressCard,
 	FormBody,
 	FormContainer,
@@ -14,10 +15,17 @@ import {
 	PageContainer,
 	ShoppingCartCard,
 	ShoppingCartContainer,
+	TotalContainer,
+	TotalItemLine,
+	TotalLine,
 } from './styles';
-import { RadioButton } from '../../components/Form/RadioButton';
+import { PRODUCTS } from '../../assets/Products';
+import { PaymentMethod } from './components/PaymentMethod';
+import { useState } from 'react';
 
 export function Checkout() {
+	const [typePayment, setTypePayment] = useState<'creditCard' | 'debitCard' | 'money'>('creditCard');
+
 	return (
 		<PageContainer>
 			<FormContainer>
@@ -77,14 +85,41 @@ export function Checkout() {
 						</CardTitle>
 					</CardHeader>
 					<CardBody>
-						<RadioButton></RadioButton>
+						<PaymentMethod onClick={() => setTypePayment('creditCard')} isActive={typePayment === 'creditCard'}>
+							<CreditCard size={16} color={defaultTheme['purple']} />
+							Cartão de Crédito
+						</PaymentMethod>
+						<PaymentMethod onClick={() => setTypePayment('debitCard')} isActive={typePayment === 'debitCard'}>
+							<Bank size={16} color={defaultTheme['purple']} />
+							Cartão de Débito
+						</PaymentMethod>
+						<PaymentMethod onClick={() => setTypePayment('money')} isActive={typePayment === 'money'}>
+							<Money size={16} color={defaultTheme['purple']} />
+							Dinheiro
+						</PaymentMethod>
 					</CardBody>
 				</FormPaymentMethodCard>
 			</FormContainer>
 			<ShoppingCartContainer>
 				<h3>Cafés selecionados</h3>
 				<ShoppingCartCard>
-					<ProductItem imageUrl="" name="" quantity={2} price={19}></ProductItem>
+					<ProductItem imageUrl={PRODUCTS[1].imageUrl} name="" quantity={2} price={19}></ProductItem>
+					<ProductItem imageUrl={PRODUCTS[1].imageUrl} name="" quantity={2} price={19}></ProductItem>
+					<TotalContainer>
+						<TotalItemLine>
+							<span>Total de itens</span>
+							<span>R$ 29,70</span>
+						</TotalItemLine>
+						<TotalItemLine>
+							<span>Entrega</span>
+							<span>R$ 3,50</span>
+						</TotalItemLine>
+						<TotalLine>
+							<span>Total</span>
+							<span>R$ 33,20</span>
+						</TotalLine>
+					</TotalContainer>
+					<ConfirmButton>Confirmar Pedido</ConfirmButton>
 				</ShoppingCartCard>
 			</ShoppingCartContainer>
 		</PageContainer>

@@ -25,6 +25,8 @@ export const CardHeader = styled.div`
 export const CardBody = styled.div`
 	display: flex;
 	flex-direction: row;
+	margin-top: 2rem;
+	gap:0.75rem;
 `;
 
 export const CardTitle = styled.div`
@@ -52,6 +54,7 @@ export const FormAddressCard = styled.div`
 `;
 export const FormPaymentMethodCard = styled.div`
 	display: flex;
+	flex-direction: column;
 	padding: 2.5rem;
 	height: 100%;
 	width: 100%;
@@ -67,8 +70,42 @@ export const ShoppingCartContainer = styled.div`
 
 export const ShoppingCartCard = styled.div`
 	display: flex;
-	height: 500px;
+	flex-direction: column;
+	gap: 1.5rem;
 	border-radius: 6px 44px 6px 44px;
 	padding: 2.5rem;
 	background-color: ${(props) => props.theme['base-card']};
+`;
+
+export const TotalContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 1.3rem;
+`;
+
+export const TotalItemLine = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
+
+export const TotalLine = styled.div`
+	display: flex;
+	font-weight: bolder;
+	font-size:20px;
+	justify-content: space-between;
+`;
+
+export const ConfirmButton = styled.button`
+	color: ${(props)=> props.theme['white']};
+	background-color: ${(props)=> props.theme['yellow']};
+	text-transform: uppercase;
+	border-radius: 6px;
+	padding: 12px 8px;
+	border: 0;
+	cursor: pointer;
+
+	&:hover{
+		background-color: ${(props)=> props.theme['yellow-dark']};
+		transition: 250ms;
+	}
 `;
