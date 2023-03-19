@@ -12,7 +12,6 @@ import {
 	PaymentMethodIcon,
 	RequestDetails,
 	Ilustration,
-	OrderInfoBorder,
 } from './styles';
 
 export function Confirmation() {
