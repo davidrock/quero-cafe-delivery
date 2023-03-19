@@ -1,4 +1,4 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from 'phosphor-react';
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, ShoppingCart } from 'phosphor-react';
 import { Flex, Box } from '@chakra-ui/react';
 import { InputText } from '../../components/Form/InputText';
 import { defaultTheme } from '../../styles/themes/default';
@@ -24,8 +24,15 @@ import { useContext, useState } from 'react';
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 
 export function Checkout() {
+	let total = '0.00';
 	const [typePayment, setTypePayment] = useState<'creditCard' | 'debitCard' | 'money'>('creditCard');
 	const { shoppingCartProducts, addShoppingCartProduct } = useContext(ShoppingCartContext);
+
+	function getTotalItems() {
+		const sum = shoppingCartProducts.reduce((sum, product) => sum + product.price * product.quantity, 0);
+		total = parseFloat((sum + 3.5).toString()).toFixed(2);
+		return parseFloat(sum.toString()).toFixed(2);
+	}
 
 	return (
 		<PageContainer>
@@ -106,7 +113,11 @@ export function Checkout() {
 				<ShoppingCartCard>
 					{shoppingCartProducts.length > 0 ? (
 						shoppingCartProducts.map((p) => (
-							<ProductItem key={p.name} product={p} handleChangeQuantity={(p) => addShoppingCartProduct(p)}></ProductItem>
+							<ProductItem
+								key={p.name}
+								product={p}
+								handleChangeQuantity={(p) => addShoppingCartProduct(p)}
+							></ProductItem>
 						))
 					) : (
 						<NoEntries>Your cart is empty</NoEntries>
@@ -115,7 +126,7 @@ export function Checkout() {
 					<TotalContainer>
 						<Flex justify="space-between">
 							<span>Total de itens</span>
-							<span>R$ 29,70</span>
+							<span>R$ {getTotalItems()}</span>
 						</Flex>
 						<Flex justify="space-between">
 							<span>Entrega</span>
@@ -123,7 +134,7 @@ export function Checkout() {
 						</Flex>
 						<TotalLine>
 							<span>Total</span>
-							<span>R$ 33,20</span>
+							<span>R$ {total}</span>
 						</TotalLine>
 					</TotalContainer>
 					<ConfirmButton>Confirmar Pedido</ConfirmButton>
