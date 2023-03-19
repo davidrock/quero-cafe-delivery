@@ -25,7 +25,7 @@ import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 
 export function Checkout() {
 	const [typePayment, setTypePayment] = useState<'creditCard' | 'debitCard' | 'money'>('creditCard');
-	const { shoppingCartProducts } = useContext(ShoppingCartContext);
+	const { shoppingCartProducts, addShoppingCartProduct } = useContext(ShoppingCartContext);
 
 	return (
 		<PageContainer>
@@ -106,18 +106,10 @@ export function Checkout() {
 				<ShoppingCartCard>
 					{shoppingCartProducts.length > 0 ? (
 						shoppingCartProducts.map((p) => (
-							<ProductItem
-								key={p.name}
-								imageUrl={p.imageUrl}
-								name={p.name}
-								quantity={p.quantity}
-								price={p.price}
-							></ProductItem>
+							<ProductItem key={p.name} product={p} handleChangeQuantity={(p) => addShoppingCartProduct(p)}></ProductItem>
 						))
 					) : (
-						<NoEntries>
-							Your cart is empty
-						</NoEntries>
+						<NoEntries>Your cart is empty</NoEntries>
 					)}
 
 					<TotalContainer>

@@ -34,7 +34,7 @@ export function CoffeeCard({ imageUrl, name, description, price, tags }: CoffeeC
 	}
 
 	function handleAddProductToShoppingCart() {
-		addShoppingCartProduct({ imageUrl, name, description, price, tags, quantity });
+		addShoppingCartProduct({ imageUrl, name, price, quantity });
 	}
 
 	return (

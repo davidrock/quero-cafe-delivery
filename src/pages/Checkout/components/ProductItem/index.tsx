@@ -10,50 +10,59 @@ import {
 	Separator,
 } from './styles';
 import { Trash } from 'phosphor-react';
-import { useContext, useState } from 'react';
-import { ShoppingCartContext } from '../../../../contexts/ShoppingCartContext';
+import { useContext } from 'react';
+import { ShoppingCart, ShoppingCartContext } from '../../../../contexts/ShoppingCartContext';
 
 export interface ProductItemProps {
-	name: string;
-	imageUrl: string;
-	quantity: number;
-	price: number;
+	product: ShoppingCart;
+	handleChangeQuantity: (product: ShoppingCart) => void;
 }
 
-export function ProductItem({ name, imageUrl, price }: ProductItemProps) {
+export function ProductItem(props: ProductItemProps) {
 	const { removeShoppingCartProduct } = useContext(ShoppingCartContext);
-	const [quantity, setQuantity] = useState(1);
 
 	function addCounter() {
-		setQuantity((state) => state + 1);
+		const product: ShoppingCart = {
+			imageUrl: props.product.imageUrl,
+			name: props.product.name,
+			price: props.product.price,
+			quantity: props.product.quantity + 1,
+		};
+		props.handleChangeQuantity(product);
 	}
 
 	function deductCounter() {
-		setQuantity((state) => (state > 1 ? state - 1 : state));
+		const product: ShoppingCart = {
+			imageUrl: props.product.imageUrl,
+			name: props.product.name,
+			price: props.product.price,
+			quantity: props.product.quantity - 1,
+		};
+		props.handleChangeQuantity(product);
 	}
 
 	return (
 		<>
 			<CardContainer>
 				<CardDetails>
-					<img src={imageUrl} alt="" width="64" height="64" />
+					<img src={props.product.imageUrl} alt="" width="64" height="64" />
 					<CardInfoActions>
-						<ItemName>{name}</ItemName>
+						<ItemName>{props.product.name}</ItemName>
 						<CardActions>
 							<QuantityButton
-								quantity={quantity}
+								quantity={props.product.quantity}
 								handleAddCounter={addCounter}
 								handleDeductCounter={deductCounter}
 								size="small"
 							></QuantityButton>
-							<RemoveButton onClick={() => removeShoppingCartProduct(name)}>
+							<RemoveButton onClick={() => removeShoppingCartProduct(props.product.name)}>
 								<Trash size={16} /> Remover
 							</RemoveButton>
 						</CardActions>
 					</CardInfoActions>
 				</CardDetails>
 
-				<ItemPrice>R$ {parseFloat(price.toString()).toFixed(2)}</ItemPrice>
+				<ItemPrice>R$ {parseFloat(props.product.price.toString()).toFixed(2)}</ItemPrice>
 			</CardContainer>
 			<Separator></Separator>
 		</>

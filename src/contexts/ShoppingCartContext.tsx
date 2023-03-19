@@ -12,7 +12,7 @@ export interface ShoppingCart {
 interface ShoppingCartContextType {
 	catalogProducts: Product[] | null;
 	shoppingCartProducts: ShoppingCart[];
-	addShoppingCartProduct: (product: Product) => void;
+	addShoppingCartProduct: (product: ShoppingCart) => void;
 	removeShoppingCartProduct: (productName: string) => void;
 	fillCatalogProducts: (product: Product[]) => void;
 	fillShoppingCart: () => void;
@@ -28,8 +28,8 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
 	const [catalogProducts, setCatalogProducts] = useState<Product[]>([]);
 	const [shoppingCartProducts, setShoppingCartProducts] = useState<ShoppingCart[]>([]);
 
-	function addShoppingCartProduct(product: Product) {
-		if (product) {
+	function addShoppingCartProduct(product: ShoppingCart) {
+		if (product && product.quantity > 0) {
 			const filteredProducts = shoppingCartProducts.filter((value) => value.name !== product.name);
 			const shoppingCart = produce(filteredProducts, (draft) => {
 				draft?.push(product);
