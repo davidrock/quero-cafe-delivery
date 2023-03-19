@@ -1,4 +1,4 @@
-import { Minus, Plus, ShoppingCart } from 'phosphor-react';
+import { ShoppingCart } from 'phosphor-react';
 import { useContext, useState } from 'react';
 import { QuantityButton } from '../../../../components/QuantityButton';
 import { ShoppingCartContext } from '../../../../contexts/ShoppingCartContext';
@@ -23,9 +23,18 @@ interface CoffeeCardProps {
 
 export function CoffeeCard({ imageUrl, name, description, price, tags }: CoffeeCardProps) {
 	const { addShoppingCartProduct } = useContext(ShoppingCartContext);
+	const [quantity, setQuantity] = useState(1);
+
+	function addCounter() {
+		setQuantity((state) => state + 1);
+	}
+
+	function deductCounter() {
+		setQuantity((state) => (state > 1 ? state - 1 : state));
+	}
 
 	function handleAddProductToShoppingCart() {
-		//addShoppingCartProduct({ imageUrl, name, description, price, tags, quantity });
+		addShoppingCartProduct({ imageUrl, name, description, price, tags, quantity });
 	}
 
 	return (
@@ -43,7 +52,11 @@ export function CoffeeCard({ imageUrl, name, description, price, tags }: CoffeeC
 					R$<CardPrice>{price?.toFixed(2)}</CardPrice>
 				</CardPriceContainer>
 				<CardActions>
-					<QuantityButton></QuantityButton>
+					<QuantityButton
+						quantity={quantity}
+						handleAddCounter={addCounter}
+						handleDeductCounter={deductCounter}
+					></QuantityButton>
 					<Button onClick={() => handleAddProductToShoppingCart()}>
 						<ShoppingCart size={22} weight="fill" />
 					</Button>
