@@ -13,6 +13,7 @@ interface ShoppingCartContextType {
 	catalogProducts: Product[] | null;
 	shoppingCartProducts: ShoppingCart[];
 	addShoppingCartProduct: (product: Product) => void;
+	removeShoppingCartProduct: (productName: string) => void;
 	fillCatalogProducts: (product: Product[]) => void;
 	fillShoppingCart: () => void;
 }
@@ -29,12 +30,20 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
 
 	function addShoppingCartProduct(product: Product) {
 		if (product) {
-			const shoppingCart = produce(shoppingCartProducts, (draft) => {
+			const filteredProducts = shoppingCartProducts.filter((value) => value.name !== product.name);
+			const shoppingCart = produce(filteredProducts, (draft) => {
 				draft?.push(product);
 			});
+
 			setShoppingCartProducts(shoppingCart);
 			localStorage.setItem('quero-cafe:shoppingCart', JSON.stringify(shoppingCart));
 		}
+	}
+
+	function removeShoppingCartProduct(productName: string) {
+		const filteredProducts = shoppingCartProducts.filter((value) => value.name !== productName);
+		setShoppingCartProducts(filteredProducts);
+		localStorage.setItem('quero-cafe:shoppingCart', JSON.stringify(filteredProducts));
 	}
 
 	function fillCatalogProducts(products: Product[]) {
@@ -55,6 +64,7 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
 				fillCatalogProducts,
 				shoppingCartProducts,
 				addShoppingCartProduct,
+				removeShoppingCartProduct,
 				fillShoppingCart,
 			}}
 		>

@@ -18,12 +18,13 @@ import {
 	TotalContainer,
 	TotalLine,
 } from './styles';
-import { PRODUCTS } from '../../assets/Products';
 import { PaymentMethod } from './components/PaymentMethod';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ShoppingCartContext } from '../../contexts/ShoppingCartContext';
 
 export function Checkout() {
 	const [typePayment, setTypePayment] = useState<'creditCard' | 'debitCard' | 'money'>('creditCard');
+	const { shoppingCartProducts } = useContext(ShoppingCartContext);
 
 	return (
 		<PageContainer>
@@ -102,8 +103,16 @@ export function Checkout() {
 			<ShoppingCartContainer>
 				<h3>Cafés selecionados</h3>
 				<ShoppingCartCard>
-					<ProductItem imageUrl={PRODUCTS[1].imageUrl} name="" quantity={2} price={19}></ProductItem>
-					<ProductItem imageUrl={PRODUCTS[1].imageUrl} name="" quantity={2} price={19}></ProductItem>
+					{shoppingCartProducts.map((p) => (
+						<ProductItem
+							key={p.name}
+							imageUrl={p.imageUrl}
+							name={p.name}
+							quantity={p.quantity}
+							price={p.price}
+						></ProductItem>
+					))}
+
 					<TotalContainer>
 						<Flex justify="space-between">
 							<span>Total de itens</span>
