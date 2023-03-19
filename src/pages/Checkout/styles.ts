@@ -77,6 +77,14 @@ export const ShoppingCartCard = styled.div`
 	background-color: ${(props) => props.theme['base-card']};
 `;
 
+export const NoEntries = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+	color: ${(props)=> props.theme['purple']};
+`;
+
 export const TotalContainer = styled.div`
 	display: flex;
 	flex-direction: column;

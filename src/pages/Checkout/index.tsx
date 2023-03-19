@@ -12,6 +12,7 @@ import {
 	FormBody,
 	FormContainer,
 	FormPaymentMethodCard,
+	NoEntries,
 	PageContainer,
 	ShoppingCartCard,
 	ShoppingCartContainer,
@@ -103,15 +104,21 @@ export function Checkout() {
 			<ShoppingCartContainer>
 				<h3>Cafés selecionados</h3>
 				<ShoppingCartCard>
-					{shoppingCartProducts.map((p) => (
-						<ProductItem
-							key={p.name}
-							imageUrl={p.imageUrl}
-							name={p.name}
-							quantity={p.quantity}
-							price={p.price}
-						></ProductItem>
-					))}
+					{shoppingCartProducts.length > 0 ? (
+						shoppingCartProducts.map((p) => (
+							<ProductItem
+								key={p.name}
+								imageUrl={p.imageUrl}
+								name={p.name}
+								quantity={p.quantity}
+								price={p.price}
+							></ProductItem>
+						))
+					) : (
+						<NoEntries>
+							Your cart is empty
+						</NoEntries>
+					)}
 
 					<TotalContainer>
 						<Flex justify="space-between">
