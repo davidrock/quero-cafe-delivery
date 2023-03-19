@@ -29,12 +29,17 @@ export const PageTitle = styled.h1`
 export const OrderInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid;
-  border-radius: 6px 36px;
-  margin-top: 2.5rem;
   padding: 2.5rem;
   gap: 2rem;
+  margin-top: 2.5rem;
+  
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, ${(props)=> props.theme['yellow']}, ${(props)=> props.theme['purple']}) border-box;
+  border: 1px solid transparent;
+  border-radius: 6px 36px;
 `;
+
+
 
 export const AddressContainer = styled.div`
   display: flex;

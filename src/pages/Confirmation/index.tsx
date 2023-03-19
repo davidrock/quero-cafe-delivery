@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react';
 import {
 	AddressContainer,
@@ -12,6 +12,7 @@ import {
 	PaymentMethodIcon,
 	RequestDetails,
 	Ilustration,
+	OrderInfoBorder,
 } from './styles';
 
 export function Confirmation() {
