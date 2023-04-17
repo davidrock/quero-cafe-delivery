@@ -62,15 +62,14 @@ export const RemoveButton = styled.button`
 	background-color: ${(props) => props.theme['base-button']};
 	cursor: pointer;
 
-	&:hover{
-		background-color: ${(props)=> props.theme['base-hover']};
+	&:hover {
+		background-color: ${(props) => props.theme['base-hover']};
 		transition: 250ms;
 	}
 
 	> svg {
 		color: ${(props) => props.theme['purple']};
 	}
-
 `;
 
 export const Separator = styled.div`

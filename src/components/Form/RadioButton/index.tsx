@@ -22,9 +22,7 @@ export function RadioButton(props: RadioButtonProps) {
 				rounded={6}
 				bg={defaultTheme['base-button']}
 				color={defaultTheme['base-text']}
-				_hover={{
-					
-				}}
+				_hover={{}}
 				_checked={{
 					border: '1px',
 					borderColor: defaultTheme['purple'],

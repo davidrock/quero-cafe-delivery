@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ItemQuantity = styled.div<{size?: string}>`
+export const ItemQuantity = styled.div<{ size?: string }>`
 	display: flex;
 	align-items: center;
 	background-color: ${(props) => props.theme['base-button']};
@@ -8,7 +8,7 @@ export const ItemQuantity = styled.div<{size?: string}>`
 	gap: 0.25rem;
 	border-radius: 6px;
 	justify-content: space-between;
-	height: ${props => props.size === 'small' ? '32px' : '38px'};
+	height: ${(props) => (props.size === 'small' ? '32px' : '38px')};
 
 	> button {
 		display: flex;

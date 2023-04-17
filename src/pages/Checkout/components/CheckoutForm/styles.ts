@@ -16,7 +16,7 @@ export const CardBody = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: 2rem;
-	gap:0.75rem;
+	gap: 0.75rem;
 `;
 
 export const CardTitle = styled.div`

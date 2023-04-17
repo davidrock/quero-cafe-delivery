@@ -16,7 +16,7 @@ export const Input = styled.input<{ error?: string }>`
 	height: 2.625rem;
 	border-radius: 0.25rem;
 	font-size: 0.875rem;
-	border-color: ${props => props.error ? 'red' : props.theme['base-button']};
+	border-color: ${(props) => (props.error ? 'red' : props.theme['base-button'])};
 
 	&:focus {
 		box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-dark']};
