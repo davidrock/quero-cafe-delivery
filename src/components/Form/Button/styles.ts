@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const ButtonContainer = styled.button`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background: #E6E5E5;
-  border-radius: 6px;
-  gap: 1rem;
+	color: ${(props) => props.theme['white']};
+	background-color: ${(props) => props.theme['yellow']};
+	text-transform: uppercase;
+	border-radius: 6px;
+	padding: 12px 8px;
+	border: 0;
+	cursor: pointer;
+
+	&:hover {
+		background-color: ${(props) => props.theme['yellow-dark']};
+		transition: 250ms;
+	}
 `;

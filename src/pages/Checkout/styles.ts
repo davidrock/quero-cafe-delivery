@@ -31,7 +31,7 @@ export const NoEntries = styled.div`
 	align-items: center;
 	justify-content: center;
 	height: 200px;
-	color: ${(props)=> props.theme['purple']};
+	color: ${(props) => props.theme['purple']};
 `;
 
 export const TotalContainer = styled.div`
@@ -43,21 +43,6 @@ export const TotalContainer = styled.div`
 export const TotalLine = styled.div`
 	display: flex;
 	font-weight: bolder;
-	font-size:20px;
+	font-size: 20px;
 	justify-content: space-between;
-`;
-
-export const ConfirmButton = styled.button`
-	color: ${(props)=> props.theme['white']};
-	background-color: ${(props)=> props.theme['yellow']};
-	text-transform: uppercase;
-	border-radius: 6px;
-	padding: 12px 8px;
-	border: 0;
-	cursor: pointer;
-
-	&:hover{
-		background-color: ${(props)=> props.theme['yellow-dark']};
-		transition: 250ms;
-	}
 `;

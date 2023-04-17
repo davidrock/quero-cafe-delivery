@@ -1,9 +1,7 @@
-import { InputHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { ButtonContainer } from './styles';
 
-export interface InputTextInputProps extends InputHTMLAttributes<HTMLButtonElement> {}
-
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children: ReactNode;
 }
 

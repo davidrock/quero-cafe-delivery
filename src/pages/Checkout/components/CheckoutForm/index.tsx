@@ -17,7 +17,10 @@ import {
 
 export function CheckoutForm() {
 	const [typePayment, setTypePayment] = useState<'creditCard' | 'debitCard' | 'money'>('creditCard');
-	const { register } = useFormContext();
+	const {
+		register,
+		formState: { errors },
+	} = useFormContext();
 
 	return (
 		<FormContainer>
@@ -32,37 +35,37 @@ export function CheckoutForm() {
 				</CardHeader>
 				<FormBody>
 					<InputText.Root>
-						<InputText.Input placeholder="CEP" {...register('cep')}></InputText.Input>
+						<InputText.Input placeholder="CEP" {...register('cep')} error={errors.cep?.message?.toString()}></InputText.Input>
 					</InputText.Root>
 					<InputText.Root>
-						<InputText.Input placeholder="Rua" {...register('rua')}></InputText.Input>
+						<InputText.Input placeholder="Rua" {...register('rua')} error={errors.rua?.message?.toString()}></InputText.Input>
 					</InputText.Root>
 					<Flex direction="row" gap="1rem">
 						<Box>
 							<InputText.Root>
-								<InputText.Input placeholder="Número" {...register('numero')}></InputText.Input>
+								<InputText.Input placeholder="Número" {...register('numero')} error={errors.numero?.message?.toString()}></InputText.Input>
 							</InputText.Root>
 						</Box>
 						<Box flex={1}>
 							<InputText.Root>
-								<InputText.Input placeholder="Complemento" {...register('complemento')}></InputText.Input>
+								<InputText.Input placeholder="Complemento" {...register('complemento')} error={errors.complemento?.message?.toString()}></InputText.Input>
 							</InputText.Root>
 						</Box>
 					</Flex>
 					<Flex direction="row" gap="1rem">
 						<Box>
 							<InputText.Root>
-								<InputText.Input placeholder="Bairro" {...register('bairro')}></InputText.Input>
+								<InputText.Input placeholder="Bairro" {...register('bairro')} error={errors.bairro?.message?.toString()}></InputText.Input>
 							</InputText.Root>
 						</Box>
 						<Box flex={1}>
 							<InputText.Root>
-								<InputText.Input placeholder="Cidade" {...register('cidade')}></InputText.Input>
+								<InputText.Input placeholder="Cidade" {...register('cidade')} error={errors.cidade?.message?.toString()}></InputText.Input>
 							</InputText.Root>
 						</Box>
 						<Box flexShrink={1}>
 							<InputText.Root>
-								<InputText.Input placeholder="UF" {...register('uf')}></InputText.Input>
+								<InputText.Input placeholder="UF" {...register('uf')} error={errors.uf?.message?.toString()}></InputText.Input>
 							</InputText.Root>
 						</Box>
 					</Flex>
